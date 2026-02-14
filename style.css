@@ -1,124 +1,272 @@
 
 :root {
-    --background: #f4f4f4;
-    --container-bg: #fff;
-    --text: #333;
-    --input-bg: #fff;
-    --input-border: #ccc;
-    --button-bg: #007bff;
-    --button-bg-hover: #0056b3;
+    --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --container-bg: #ffffff;
+    --text: #2d3748;
+    --text-secondary: #718096;
+    --input-bg: #f7fafc;
+    --input-border: #e2e8f0;
+    --input-focus: #667eea;
+    --button-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --button-bg-hover: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
     --button-text: #fff;
-    --todo-border: #eee;
-    --completed-text: #888;
-    --delete-bg: #dc3545;
-    --delete-bg-hover: #b52a37;
+    --todo-border: #e2e8f0;
+    --todo-hover: #f7fafc;
+    --completed-text: #a0aec0;
+    --delete-bg: #f56565;
+    --delete-bg-hover: #e53e3e;
     --delete-text: #fff;
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .dark-theme {
-    --background: #181a1b;
-    --container-bg: #23272a;
-    --text: #f4f4f4;
-    --input-bg: #23272a;
-    --input-border: #444;
-    --button-bg: #4f8cff;
-    --button-bg-hover: #2563eb;
+    --background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+    --container-bg: #2d3748;
+    --text: #f7fafc;
+    --text-secondary: #a0aec0;
+    --input-bg: #1a202c;
+    --input-border: #4a5568;
+    --input-focus: #667eea;
+    --button-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --button-bg-hover: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
     --button-text: #fff;
-    --todo-border: #333;
-    --completed-text: #888;
-    --delete-bg: #e74c3c;
-    --delete-bg-hover: #c0392b;
-    --delete-text: #fff;
+    --todo-border: #4a5568;
+    --todo-hover: #374151;
+    --completed-text: #718096;
+    --delete-bg: #fc8181;
+    --delete-bg-hover: #f56565;
+    --delete-text: #1a202c;
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
     background: var(--background);
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 
+                 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     margin: 0;
     padding: 0;
     color: var(--text);
-    transition: background 0.3s, color 0.3s;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 100vh;
 }
 
 .container {
-    max-width: 400px;
+    max-width: 500px;
     margin: 60px auto;
     background: var(--container-bg);
-    padding: 2rem 1.5rem 1.5rem 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: background 0.3s;
+    padding: 2.5rem 2rem 2rem 2rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-xl);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h1 {
     text-align: center;
     color: var(--text);
-    margin-bottom: 1.5rem;
+    margin: 0 0 2rem 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: slideDown 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .input-group {
     display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
 }
 
 #todo-input {
     flex: 1;
-    padding: 0.5rem;
-    border: 1px solid var(--input-border);
-    border-radius: 4px;
+    padding: 0.875rem 1.25rem;
+    border: 2px solid var(--input-border);
+    border-radius: 12px;
     font-size: 1rem;
     background: var(--input-bg);
     color: var(--text);
-    transition: background 0.3s, color 0.3s, border 0.3s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    font-weight: 500;
+}
+
+#todo-input:focus {
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-1px);
+}
+
+#todo-input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
 }
 
 #add-btn {
-    padding: 0.5rem 1rem;
+    padding: 0.875rem 2rem;
     background: var(--button-bg);
     color: var(--button-text);
     border: none;
-    border-radius: 4px;
+    border-radius: 12px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background 0.2s;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
 }
 
 #add-btn:hover {
     background: var(--button-bg-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+#add-btn:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
 }
 
 #todo-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#todo-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#todo-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#todo-list::-webkit-scrollbar-thumb {
+    background: var(--input-border);
+    border-radius: 4px;
+}
+
+#todo-list::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
 }
 
 .todo-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0.75rem;
+    padding: 1rem 1.25rem;
     border-bottom: 1px solid var(--todo-border);
     font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.todo-item:hover {
+    background: var(--todo-hover);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-sm);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+}
+
+.todo-text {
+    flex: 1;
+    user-select: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
 }
 
 .todo-text.completed {
     text-decoration: line-through;
     color: var(--completed-text);
+    opacity: 0.6;
 }
 
 .delete-btn {
     background: var(--delete-bg);
     color: var(--delete-text);
     border: none;
-    border-radius: 4px;
-    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
     cursor: pointer;
-    font-size: 0.95rem;
-    transition: background 0.2s;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+    opacity: 0.9;
 }
 
 .delete-btn:hover {
     background: var(--delete-bg-hover);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+    opacity: 1;
+}
+
+.delete-btn:active {
+    transform: scale(0.95);
 }
